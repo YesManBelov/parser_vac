@@ -1,0 +1,111 @@
+
+
+
+
+После создания своего приложения:
+1 - внести его в файл settings - в раздел INSTALLED_APPS
+
+2 - создание модели в файле models
+   (verbose_name="Имя" это перевод)
+   В Классе Meta - перевод страницы приложений
+    УЗНАТЬ ДЛЯ ЧЕГО __СТР__
+
+3 - защита от повторений  (unique=True)
+
+4 - не забывать делать миграцию при каждом создании новой модели
+    регистрация - в файл admin добавить модель admin.site.register(MODELNAME)
+    миграция - python mange.py makemigrations (создание)
+                python mange.py migrate (применение)
+
+5 - работа с базой данных через интерактивную консоль
+
+    python manage.py shell
+
+    не забыть импортировать
+    from scraping.models import city, language
+    c = City('Moscow')
+    c2= ...
+    c.save()
+    c2.save()
+    c.id
+    посмотреть сколько
+    а = City.objects.all() # это sql запрос
+    а, a[0]
+    a.count() этьо все sql
+
+
+---
+user settings
+https://docs.djangoproject.com/en/5.0/topics/auth/customizing/
+a full exa
+
+python .\manage.py startapp accounts
+
+создать модель юзер
+удалить дату рождения
+манагер скопировать с сайта
+очистить REQUIRED_FIELDS
+
+city = models.ForeignKey('City' для связи, а импортировать не надо, джанга сама раздерется
+
+и переопределение админ файла
+нужно чтобы регистрировать кастомную модель в джанго
+
+поменять from Custom accounts
+расскащать про clean_password
+
+после этого надо добавить в setting приложение
+почитстиь базу данных
+иначе не сработает из за того что уже стартовали
+
+можно скачать наши данные
+python manage.py dumpdata --indent 2 scraping > scraping.json
+
+грохнуть бд
+грохнуть migrations
+
+создать заново суперюзера и миграции
+загрузить данные Python mange.py loaddata scraping,json
+
+https://docs.djangoproject.com/en/5.0/topics/auth/default/
+аутентификация
+
+создать файл формс и заполнить
+создать файл views и заполнить
+создать файл urls и заполнить
+
+из urls accounts подключить адреса в главный
+----
+работа с querySet Api
+djangofun queryset
+----
+чтобы правильно добавить опредление html страницы:
+надо в файл views.py добавить функцию отображения
+
+Лучше добавить файлы шаблонов в приложение
+templates.имяприложения, так и прописывать при ссылке
+
+не забыть внести папку templates в файл settings
+
+шаблонный язык находится по пресу
+templates/builtins
+
+в главном templates долнжен быть базовый шаблон
+<form method="POST" action=""> {% csrf_token %}
+то данные удйдут в теле запроса
+
+_filter['city__name'] = city
+заходим во внутрь таблицы city и ищем по внутреннему полю
+
+сощдание своих форм
+создаем файл form.py
+в нем форму
+
+передаем форму в views.py
+перебрасываем через словрь на рендер
+и вызываем в html так  {{ form.as_p}}
+так же можно добавлять виджетыы, чтобы вручную
+заполнять атрибуты типа класса имени и тд
+
+чтобы добавить войти и выйти
+надо доавить условие
