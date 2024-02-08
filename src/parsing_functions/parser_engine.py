@@ -16,7 +16,7 @@ headers = [
 ]
 
 
-def head_hunter(url):
+def head_hunter(url, city_id, language_id):
     domain = get_domain_name(url)
     jobs = []
     errors = []
@@ -37,7 +37,12 @@ def head_hunter(url):
                     div_company = div.find('div', attrs={'class': 'vacancy-serp-item-company'})
                     company_name = div_company.a.text
 
-                    jobs.append({'title': title, 'url': url, 'company': company_name})
+                    jobs.append(
+                        {'title': title, 'url': url,
+                         'company': company_name,
+                         'description': 'Company Description',
+                         'city_id': city_id,
+                         'language_id': language_id})
             else:
                 errors.append({'url': url, 'error': 'div does not exist'})
         else:
@@ -49,7 +54,7 @@ def head_hunter(url):
         return jobs, errors
 
 
-def superjob(url):
+def superjob(url, city_id, language_id):
     domain = get_domain_name(url)
     jobs = []
     errors = []
@@ -71,7 +76,12 @@ def superjob(url):
                         'class': '_3nMqD f-test-text-vacancy-item-company-name _1trBE _2C8nO _2KJeO _3B9u2 _3nGEP'})
                     company_name = div_company.a.text
 
-                    jobs.append({'title': title, 'url': url, 'company': company_name})
+                    jobs.append(
+                        {'title': title, 'url': url,
+                         'company': company_name,
+                         'description': 'Company Description',
+                         'city_id': city_id,
+                         'language_id': language_id})
             else:
                 errors.append({'url': url, 'error': 'div does not exist'})
         else:
