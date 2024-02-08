@@ -1,5 +1,5 @@
 """
-URL configuration for test_project project.
+URL configuration for parsing_servise project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -16,9 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from scraping.views import home_view
+from parsing_app.views import home_view
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include(('accounts.urls', 'accounts'))),
+    path('accounts_app/', include(('accounts_app.urls', 'accounts_app'))),
     path('', home_view, name='home'),
 ]

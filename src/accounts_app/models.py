@@ -42,11 +42,11 @@ class MyUser(AbstractBaseUser):
     )
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
-    city = models.ForeignKey('scraping.City',
+    city = models.ForeignKey('parsing_app.City',
                              on_delete=models.SET_NULL,
                              null=True,
                              blank=True)
-    language = models.ForeignKey('scraping.Language', on_delete=models.SET_NULL,
+    language = models.ForeignKey('parsing_app.Language', on_delete=models.SET_NULL,
                                  null=True, blank=True)
     send_email = models.BooleanField(default=False)
 
@@ -54,6 +54,10 @@ class MyUser(AbstractBaseUser):
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
+
+    class Meta:
+        verbose_name = "Пользователь"
+        verbose_name_plural = "Пользователи"
 
     def __str__(self):
         return self.email

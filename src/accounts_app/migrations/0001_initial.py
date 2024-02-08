@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('scraping', '0001_initial'),
+        ('parsing_app', '0001_initial'),
     ]
 
     operations = [
@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('is_active', models.BooleanField(default=True)),
                 ('is_admin', models.BooleanField(default=False)),
                 ('send_email', models.BooleanField(default=False)),
-                ('city', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='scraping.city')),
+                ('city', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='parsing_app.city')),
             ],
             options={
                 'abstract': False,

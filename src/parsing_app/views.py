@@ -26,7 +26,7 @@ def home_view(request):
         # qs = Vacancy.objects.all()
 
 
-        return render(request, 'scraping/home.html',
+        return render(request, 'parsing_app/home.html',
                       {'data_list': qs, 'form': form})
     else:
-        return redirect('accounts:login')
+        return redirect('accounts_app:login')
