@@ -26,6 +26,7 @@ print(len(all_jobs))
 print(all_jobs[1])
 print(all_jobs[30])
 print(all_jobs[60])
+print(all_jobs[70])
 
 # def write_jobs():
 #     with codecs.open('parsing_functions/hh.json', 'w', 'utf-8') as file:
