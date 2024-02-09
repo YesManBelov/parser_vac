@@ -77,7 +77,7 @@ class Vacancy(models.Model):
 
 
 class Error(models.Model):
-    timestamp = models.DateTimeField(auto_now_add=True, null=True)
+    timestamp = models.DateField(auto_now_add=True, null=True)
     url = models.URLField(null=True, editable=False)
     error = models.CharField(max_length=100,
                              blank=True,

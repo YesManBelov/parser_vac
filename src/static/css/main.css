@@ -1,0 +1,12 @@
+@font-face {
+    font-family: Smooch;
+    src: url(../fonts/Smooch-Regular.ttf)
+}
+#brand {
+    font-family: Smooch;
+    color: aliceblue;
+}
+
+#menuBar {
+    margin-left: auto;
+}

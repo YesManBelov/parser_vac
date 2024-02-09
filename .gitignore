@@ -1,6 +1,7 @@
 .idea/
 desktop.ini
 .venv
+.env
 .gitignore
 plan.txt
 # Created by https://www.gitignore.io/api/macos,linux,django,python,pycharm
